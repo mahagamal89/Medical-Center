@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -31,5 +32,15 @@ class MedicalCenter extends Model
     public function doctors()
     {
         return $this->hasMany(Doctor::class);
+    }
+
+    /**
+     * Setup the relationship to the users.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
+    {
+        return $this->hasMany(User::class);
     }
 }
