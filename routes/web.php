@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('register', Register::class)->only('index');
+Route::resource('login', Login::class)->only('index');
