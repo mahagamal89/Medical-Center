@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\Register;
+use App\Http\Controllers\Register;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Register::class);
+Route::resource('register', Register::class)->only('index');

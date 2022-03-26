@@ -1,6 +1,6 @@
 <div>
     <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      	<div class="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
+        <div class="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
             <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
                 Join us Now
             </div>
@@ -9,8 +9,8 @@
             </div>
 
             <div class="mt-10">
-                <form action="#">
-                    <div class="flex flex-col mb-5">
+                <form wire:submit.prevent="register">
+                    <div class="flex flex-col mb-5 max-h-10">
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
@@ -18,10 +18,14 @@
                                 </svg>
                             </div>
 
-                            <input id="name" type="text" name="name" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your name"/>
+                            <input id="name" type="text" wire:model="name" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your name"/>
                         </div>
+                        <span class="error text-xs text-red-500">
+                            @error('name') {{ $message }} @enderror
+                        </span>
                     </div>
-                    <div class="flex flex-col mb-5">
+
+                    <div class="flex flex-col mb-5 max-h-10">
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
@@ -29,11 +33,15 @@
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                 </svg>
                             </div>
-                            <input id="email" type="email" name="email" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your email"/>
+
+                            <input id="email" type="email" wire:model="email" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your email"/>
                         </div>
+                        <span class="error text-xs text-red-500">
+                            @error('email') {{ $message }} @enderror
+                        </span>
                     </div>
 
-                    <div class="flex flex-col mb-6">
+                    <div class="flex flex-col mb-5 max-h-10">
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <span>
@@ -42,11 +50,15 @@
                                     </svg>
                                 </span>
                             </div>
-                            <input id="password" type="password" name="password" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your password"/>
+
+                            <input id="password" type="password" wire:model="password" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your password"/>
                         </div>
+                        <span class="error text-xs text-red-500">
+                            @error('password') {{ $message }} @enderror
+                        </span>
                     </div>
 
-                    <div class="flex flex-col mb-6">
+                    <div class="flex flex-col mb-5 max-h-10">
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <span>
@@ -55,11 +67,15 @@
                                     </svg>
                                 </span>
                             </div>
-                            <input id="password_confirmation" type="password" name="password_confirmation" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="confirm your password"/>
+
+                            <input id="password_confirmation" type="password" wire:model="passwordConfirmation" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="confirm your password"/>
                         </div>
+                        <span class="error text-xs text-red-500">
+                            @error('passwordConfirmation') {{ $message }} @enderror
+                        </span>
                     </div>
 
-                    <div class="flex flex-col mb-5">
+                    <div class="flex flex-col mb-5 max-h-10">
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
@@ -67,11 +83,14 @@
                                 </svg>
                             </div>
 
-                            <input id="address" type="text" name="address" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your address"/>
+                            <input id="address" type="text" wire:model="address" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your address"/>
                         </div>
+                        <span class="error text-xs text-red-500">
+                            @error('address') {{ $message }} @enderror
+                        </span>
                     </div>
 
-                    <div class="flex flex-col mb-5">
+                    <div class="flex flex-col mb-5 max-h-10">
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
@@ -79,7 +98,24 @@
                                 </svg>
                             </div>
 
-                            <input id="mobile_number" type="text" name="mobile_number" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your mobile number"/>
+                            <input id="mobile_number" type="text" wire:model="mobileNumber" class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your mobile number"/>
+                        </div>
+                        <span class="error text-xs text-red-500">
+                            @error('mobileNumber') {{ $message }} @enderror
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col mb-5 max-h-10">
+                        <div class="relative">
+                            <select wire:model="medicalCenter" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option selected value="">Choose a Medical Center</option>
+                                @foreach ($medicalCenters as $medicalCenter)
+                                    <option>{{ $medicalCenter->name }}</option>
+                                @endforeach
+                            </select>
+                            <span class="error text-xs text-red-500">
+                                @error('medicalCenter') {{ $message }} @enderror
+                            </span>
                         </div>
                     </div>
 
@@ -100,7 +136,7 @@
             <a href="#" target="_blank" class="inline-flex items-center text-gray-700 font-medium text-xs text-center">
                 <span class="ml-2">
                     You have an account?
-                    <a href="#" class="text-xs ml-2 text-blue-500 font-semibold">
+                    <a href="{{ route('login.index') }}" class="text-xs ml-2 text-blue-500 font-semibold">
                         Login here
                     </a>
                 </span>
