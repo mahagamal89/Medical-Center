@@ -9,6 +9,13 @@
             </div>
 
             <div class="mt-10">
+                <div class="flex justify-center text-green-500 mb-5">
+                    @if (session()->has('registerSuccessMessage'))
+                    <div>
+                        {{ session('registerSuccessMessage') }}
+                    </div>
+                    @endif
+                </div>
                 <form wire:submit.prevent="register">
                     <div class="flex flex-col mb-5 max-h-10">
                         <div class="relative">

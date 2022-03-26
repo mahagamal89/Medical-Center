@@ -86,7 +86,9 @@ class Register extends Component
             'mobile_number' => $validatedData['mobileNumber'],
         ]);
 
-        return redirect()->route('medical-center');
+        session()->flash('registerSuccessMessage', 'You have successfully registered.');
+
+        return redirect()->back();
     }
 
     /**
