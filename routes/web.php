@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Login;
+use App\Http\Controllers\MedicalCenter;
 use App\Http\Controllers\Register;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+        return redirect()->route('medical-center.index');
+    });
 Route::resource('register', Register::class)->only('index');
 Route::resource('login', Login::class)->only('index');
+Route::resource('medical-center', MedicalCenter::class)->only('index');
