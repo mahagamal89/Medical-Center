@@ -20,6 +20,8 @@
     </head>
 
     <body>
+        @livewire('register')
+
         @yield('content')
 
         <script src="{{ mix('js/app.js') }}"></script>
