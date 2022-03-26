@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\MedicalCenter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Doctor extends Model
 {
@@ -23,4 +24,14 @@ class Doctor extends Model
         'specialist',
         'mobile_number',
     ];
+
+    /**
+     * Setup the relationship to the medical center.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function medicalCenter()
+    {
+        return $this->belongsTo(MedicalCenter::class);
+    }
 }

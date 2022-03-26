@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('mobile_number', 11);
             $table->rememberToken();
+
+            $table->unsignedBigInteger('medical_center_id')->index()->nullable();
         });
     }
 
