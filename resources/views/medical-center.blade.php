@@ -236,9 +236,10 @@
                 </div>
             </div>
 
-            <div class="px-5 items-center justify-center w-full mt-12 mb-4 lg:flex">
+            <div class="flex flex-wrap px-5 items-center justify-center w-full mt-12 mb-4 lg:flex">
                 @foreach ($associatedDoctors as $associatedDoctor)
-                <div class="flex flex-col w-full h-auto mb-12 lg:w-1/3 lg:mb-0">
+                <div class="flex flex-col w-1/3 h-auto mb-12 lg:w-1/3 lg:mb-0 border border-gray-300 p-6 rounded-lg"
+                    style="margin: 5px;">
                     <div class="flex items-center justify-center">
                         <div class="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-36 w-36 text-blue-500" viewBox="0 0 20 20"
